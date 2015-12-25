@@ -38,3 +38,11 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 end
 
+# SYC extensions
+
+# Authentication with Devise
+gem 'devise'
+
+# Bower command line interface with Rake
+gem 'bower-rails'
+

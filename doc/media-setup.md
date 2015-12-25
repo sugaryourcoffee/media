@@ -2,9 +2,11 @@
 In the Media application we will use
 
 * Ruby and Ruby on Rails
-* PostgreSQL
+* PostgreSQL as the database
+* Devise for authentication
+* Bower for front-end assets
 * AngularJS
-* Bootstrap
+* Bootstrap for CSS
 
 ## Install latest Ruby and Rails
 First we make sure we have the latest RVM version
@@ -96,12 +98,37 @@ This command will create a role *media* that is allowed to create databases
 `CREATEDB` and `LOGIN` will tell postgres that the user is allowed to login to 
 the database.
 
+## Install Bower
+Bower manages front-end assets like Bootstrap or AngularJS. To install Bower we
+need install NodeJS which is probably already available. With NodeJS comes the
+npm package manager. We can install NodeJS from the Ubuntu repository
+
+    $ sudo apt-get install nodejs
+
+To install Bower we do
+
+    $ npm install -g bower
+
+This will install Bower in global mode (`-g`).
+
+We also want to install `bower-rails` to interact with Bower on the command line
+with Rake instead of using the Bower command line interface directly. So add to 
+the Gemfile
+
+    gem 'bower-rails'
+
+and run
+
+    $ bundle install
+
+## Install Boostrap
+To ease CSS styling we rely on the CSS library Bootstrap so we don't have to
+write rarely any CSS.
+
+
 ## Install AngularJS
 AngularJS is a JavaScript framework we want to utilize in our application which
 is easier to use than pure JQuery.
-
-## Install Boostrap
-To ease CSS styling we rely on the CSS library Bootstrap.
 
 # Craete the Media application
 We create the application without ri and rdoc. We also don't want to use 
@@ -137,4 +164,81 @@ then start your Rails server
 
 and goto [http://localhost:3000](http://localhost:3000) where you should see
 the default Rails welcome screen.
+
+# Install Devise
+Devise is used for user authentication. To install it we add to the Gemfile
+
+    gem 'devise'
+
+and then we run
+
+    $ bundle install
+    $ rails g devise:install
+
+This will provide some information
+
+    Some setup you must do manually if you haven't yet: 
+
+      1. Ensure you have defined default url options in your environments files.
+         Here is an example of default_url_options appropriate for a development
+         environment in config/environments/development.rb:
+
+           config.action_mailer.default_url_options = { host: 'localhost', 
+                                                        port: 3000 }
+
+         In production, :host should be set to the actual host of your 
+         application. 
+
+      2. Ensure you have defined root_url to *something* in your 
+         config/routes.rb.  
+
+         For example:
+
+           root to: "home#index"
+
+      3. Ensure you have flash messages in 
+         app/views/layouts/application.html.erb.  
+
+         For example:
+
+           <p class="notice"><%= notice %></p>
+           <p class="alert"><%= alert %></p>
+
+      4. If you are deploying on Heroku with Rails 3.2 only, you may want to 
+         set:
+
+           config.assets.initialize_on_precompile = false
+
+         On config/application.rb forcing your application to not access the DB
+         or load models when precompiling your assets.
+
+      5. You can copy Devise views (for customization) to your app by running:
+
+           rails g devise:views        
+
+Devise comes with a generator for creating an user model. We will use that with
+
+    $ rails g devise user
+
+In order to restrict access to registered in logged in users only we have to add
+the `authenticate_user!` filter, that comes with Devise, to the 
+`ApplicationController`. Note that this will prevent access of anonymous users
+on all Media pages. If we want to have pages we want to allow access to by
+anonymous users we have to skip the filter in the respective controller or 
+actions. For now we add `authenticate_user!` to the `ApplicationController`.
+
+    before_action :authenticate_user!
+
+We have to restart our Rails server in order to activate the changes.
+
+    $ CTRL-C
+    $ rails s
+
+We can also view the database with
+
+    $ rails dbconsole
+    Password:
+
+To enter the database console we have to enter the password we have provided in
+`config/database.yml` for the media database.
 
