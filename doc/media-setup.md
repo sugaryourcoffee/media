@@ -107,9 +107,10 @@ npm package manager. We can install NodeJS from the Ubuntu repository
 
 To install Bower we do
 
-    $ npm install -g bower
+    $ sudo npm install -g bower
 
-This will install Bower in global mode (`-g`).
+This will install Bower in global mode (`-g`) and install it in 
+`/usr/local/lib/node_modules/bower` which needs root access.
 
 We also want to install `bower-rails` to interact with Bower on the command line
 with Rake instead of using the Bower command line interface directly. So add to 
@@ -123,8 +124,38 @@ and run
 
 ## Install Boostrap
 To ease CSS styling we rely on the CSS library Bootstrap so we don't have to
-write rarely any CSS.
+write rarely any CSS. We can search for Bootstrap with Bower
 
+    $ bower search bootstrap | grep -P "^\s*bootstrap"
+
+    bootstrap git://github.com/twbs/bootstrap.git
+    bootstrap-sass-official git://github.com/twbs/bootstrap-sass.git
+    bootstrap-datepicker git://github.com/eternicode/bootstrap-datepicker.git
+    bootstrap-select git://github.com/silviomoreto/bootstrap-select.git
+    bootstrap-daterangepicker git://github.com/dangrossman/\
+    bootstrap-daterangepicker.git
+    bootstrap-timepicker git://github.com/jdewit/bootstrap-timepicker
+    bootstrap-switch git://github.com/nostalgiaz/bootstrap-switch.git
+    bootstrap-css git://github.com/jozefizso/bower-bootstrap-css.git
+    bootstrap-multiselect git://github.com/davidstutz/bootstrap-multiselect.git
+    bootstrap.css git://github.com/bowerjs/bootstrap.git
+    bootstrap-datetimepicker git://github.com/tarruda/\
+    bootstrap-datetimepicker.git
+    bootstrap-modal git://github.com/jschr/bootstrap-modal.git
+    bootstrap-tour git://github.com/sorich87/bootstrap-tour.git
+    bootstrap-tagsinput git://github.com/TimSchlechter/bootstrap-tagsinput.git
+    bootstrap-additions git://github.com/mgcrea/bootstrap-additions.git
+    bootstrap-file-input git://github.com/grevory/bootstrap-file-input.git
+    bootstrap-social git://github.com/lipis/bootstrap-social.git
+
+As Rails is working with Sass we use the second one in the list and add it to a
+file called `Bowerfile` analogous to the Gemfile
+
+    asset 'bootstrap-sass-official
+
+Now we run the Rake task to install Bower
+
+    $ rake bower:install
 
 ## Install AngularJS
 AngularJS is a JavaScript framework we want to utilize in our application which
