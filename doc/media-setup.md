@@ -157,6 +157,18 @@ Now we run the Rake task to install Bower
 
     $ rake bower:install
 
+In order Bootstrap is considered when Rails is creating `application.css` we 
+need to tell it to include Bootstrap. This is done in 
+`app/assets/stylesheets/application.css`
+
+    /*
+     *= require_tree .
+     *= require_self
+     *= require 'bootstrap-sass-official'
+     */
+
+In order to see the new Bootstrap styles we have to restart our Rails server.
+
 ## Install AngularJS
 AngularJS is a JavaScript framework we want to utilize in our application which
 is easier to use than pure JQuery.
