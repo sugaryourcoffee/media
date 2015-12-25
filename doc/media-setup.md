@@ -285,3 +285,8 @@ We can also view the database with
 To enter the database console we have to enter the password we have provided in
 `config/database.yml` for the media database.
 
+Devise views are not accessible at first. But if we want to style them we have
+to extract them to our application. We can do this with
+
+    $ rails generate devise:views
+
