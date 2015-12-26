@@ -36,6 +36,12 @@ group :development, :test do
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  
+  # SYC extensions
+  gem 'rspec-rails', '~> 3.0'
+  gem 'poltergeist'
+  gem 'database_cleaner'
+  gem 'teaspoon-jasmine'
 end
 
 # SYC extensions

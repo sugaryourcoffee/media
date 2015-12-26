@@ -14,7 +14,7 @@ The Media application consists of following objects
 Object    | Description                          | Association
 --------- | ------------------------------------ | ------------------------
 User      | User of the application              | Media, Comments
-Media     | Media of differnt kinds              | User, Comments, Location, Artist
+Media     | Media of different kinds             | User, Comments, Location, Artist
 Artist    | Creator of the media                 | Media
 Borrowing | Borrowed media                       | Borrower, Media
 Lending   | Lended media                         | Lender, Media
@@ -28,10 +28,15 @@ information like
 
      http://isbndb.com/api/v2/json/my-api-key/book/9781449326333
 
+The API for ISNBdb can be found at 
+[ISBNdb API -- Version 2](http://isbndb.com/api/v2/docs)
+
 ## Artist
 The artist is looked up when entered eather manually or by scanning a media. If
 the artist is not known it is created after double checking whether it exists
-with a different name.
+with a different name. The lookup of an author looks like this
+
+     http://isbndb.com/api/v2/json/my-api-key/author/regina_obe
 
 ## Borrowing and Lending
 If a user wants to lend a book she sends a request for that book to lend. The 
