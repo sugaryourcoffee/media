@@ -22,7 +22,11 @@ Location  | Location where media can be obtained | Media
 
 ## Media
 Media can be collected manually or with a scanner. By entering the ISBN the
-media details are looked up in the internet
+media details are looked up in the internet. On source is 
+[isbnDB](http://isbndb.com) where we can obtain an api-key and retrieve 
+information like
+
+     http://isbndb.com/api/v2/json/my-api-key/book/9781449326333
 
 ## Artist
 The artist is looked up when entered eather manually or by scanning a media. If
@@ -36,6 +40,6 @@ messages on how to hand over the book. If the lender wants to return the book
 she sends a respective message.
 
 ## Location
-The location has an address and media that can be obtained at the location
+The location has an address and media that can be obtained at the location.
 
 
