@@ -459,12 +459,12 @@ application design can be found at [design-notes.md](design-notes.md).
 
 # Resources
 
-[Rails, Angular, Postgres, and Bootstrap by David Bryant Copeland](https://pragprog.com/book/dcbang/rails-angular-postgres-and-bootstrap)
-[PostgreSQL - Up and Running by Regina Obe & Leo Hsu](http://shop.oreilly.com/product/0636920032144.do)
-[http://www.postgresql.org](http://www.postgresql.org)
-[PostgreSQL Ubuntu Wiki](https://help.ubuntu.com/community/PostgreSQL)
-[PostgreSQL Linux downloads (Ubuntu)](http://www.postgresql.org/download/linux/ubuntu/)
-[PhantomJS Documentation](http://phantomjs.org/download.html)
-[PhantomJS Build](http://phantomjs.org/build.html)
-[Repositories/CommandLine](https://help.ubuntu.com/community/Repositories/CommandLine).
+* [Rails, Angular, Postgres, and Bootstrap by David Bryant Copeland](https://pragprog.com/book/dcbang/rails-angular-postgres-and-bootstrap)
+* [PostgreSQL - Up and Running by Regina Obe & Leo Hsu](http://shop.oreilly.com/product/0636920032144.do)
+* [http://www.postgresql.org](http://www.postgresql.org)
+* [PostgreSQL Ubuntu Wiki](https://help.ubuntu.com/community/PostgreSQL)
+* [PostgreSQL Linux downloads (Ubuntu)](http://www.postgresql.org/download/linux/ubuntu/)
+* [PhantomJS Documentation](http://phantomjs.org/download.html)
+* [PhantomJS Build](http://phantomjs.org/build.html)
+* [Repositories/CommandLine](https://help.ubuntu.com/community/Repositories/CommandLine).
 
