@@ -41,7 +41,7 @@ RSpec.configure do |config|
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
     # SYC extension
-    mocks.verify_doubled_constant_name = true
+    mocks.verify_doubled_constant_names = true
   end
 
 # The settings below are suggested to provide a good initial experience
