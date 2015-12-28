@@ -1,6 +1,9 @@
 require 'rails_helper'
+require 'support/user_attributes'
 
 describe Media do
+
+  let(:user) { User.create!(user_attributes) }
 
   it "should respond to attributes" do
     media = Media.new
