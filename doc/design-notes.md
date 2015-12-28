@@ -66,6 +66,10 @@ When implementing Media we can use single table inheritance (STI) to
 differentiate between the different types of media (book, song, film, game).
 How to implement STI can be found at [ActiveRecord::Inheritance](http://api.rubyonrails.org/classes/ActiveRecord/Inheritance.html)
 
+To create the table we issue
+
+    $ rails g model media
+
 ## Artist
 The artist is looked up when entered eather manually or by scanning a media. If
 the artist is not known it is created after double checking whether it exists
