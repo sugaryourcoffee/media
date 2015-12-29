@@ -14,11 +14,12 @@ The Media application consists of following objects
 
 Object       | Description                          | Association
 ------------ | ------------------------------------ | ------------------------
-User         | User of the application              | Media, Comment
-Media        | Media of different kinds             | Comment, Rating, MediaCenter, Artist, Owner (User)
+User         | User of the application              | MediaItem, Comment
+MediaItem    | Media part of user's media library   | Media
+Media        | Media of different kinds             | Comment, Rating, MediaCenter, Artist, MediaItem
 Artist       | Creators of the media                | Media
-Lending      | Lended media                         | Lender (User), Borrower (User), Media
-MediaCenter  | Location where media can be obtained | Media
+Lending      | Lended media                         | Lender (User), Borrower (User), MediaItem
+MediaCenter  | Location where media can be obtained | MediaItem
 
 ## Media
 Media can be collected manually or with a scanner. By entering the ISBN the
