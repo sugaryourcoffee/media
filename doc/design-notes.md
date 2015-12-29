@@ -21,7 +21,7 @@ Artist       | Creators of the media                | Media
 Lending      | Lended media                         | Lender (User), Borrower (User), MediaItem
 MediaCenter  | Location where media can be obtained | MediaItem
 
-## Media
+## Media and MediaItem
 Media can be collected manually or with a scanner. By entering the ISBN the
 media details are looked up in the internet. On source is 
 [isbnDB](http://isbndb.com) where we can obtain an api-key and retrieve 
@@ -37,7 +37,6 @@ fields each of these media should have
 
 Field            | Book | Song | Film | Description
 ---------------- | ---- | ---- | ---- | --------------------------------------
-user             | x    | x    | x    | owner of the media
 title            | x    | x    | x    | 
 subtitle         | x    | x    | x    |
 description      | x    | x    | x    |
@@ -58,6 +57,17 @@ isxn             | x    | x    | x    | isbn, ismn, vendor specific number
 artists          | x    | x    | x    | author, band, singer, director, actor
 storage-position | x    | x    | x    | eather physical or link
 tags             | x    | x    | x    | search tags
+
+A MediaItem is owened by a User. A MediaItem has a Media. We distinguish between
+Media and MediaItem as a Media has User specific properties, e.g. different 
+Users may own the same Media but don't necessarily want to lend their Media 
+both.
+
+Field            | Book | Song | Film | Description
+---------------- | ---- | ---- | ---- | --------------------------------------
+user             | x    | x    | x    | owner of the media
+media            | x    | x    | x    | the actual media
+storage-position | x    | x    | x    | eather physical or link
 for-sale         | x    | x    | x    | true when for sale
 price            | x    | x    | x    | has a price if it is for sale
 lendable         | x    | x    | x    | true when lendable
@@ -66,10 +76,6 @@ lendings         | x    | x    | x    |
 When implementing Media we can use single table inheritance (STI) to 
 differentiate between the different types of media (book, song, film, game).
 How to implement STI can be found at [ActiveRecord::Inheritance](http://api.rubyonrails.org/classes/ActiveRecord/Inheritance.html)
-
-To create the table we issue
-
-    $ rails g model media
 
 ## Artist
 The artist is looked up when entered eather manually or by scanning a media. If
